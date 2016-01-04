@@ -1,0 +1,142 @@
+
+# coding: utf-8
+
+# In[4]:
+
+def run_something_with_args(func,arg1,arg2):
+    func(arg1,arg2)
+
+
+# In[2]:
+
+run_something_with_args(add_args,5,9)
+
+
+# In[8]:
+
+def A(func,x,y):
+    func(x,y)
+    
+
+
+# In[11]:
+
+def plus(x,y):
+    print(x+y)
+    
+
+
+# In[12]:
+
+A(plus,4,5)
+
+
+# In[14]:
+
+def sum_args(*args):
+    return sum(args)
+
+
+# In[15]:
+
+sum_args(1,2,3)
+
+
+# In[16]:
+
+def run_with_Positional_args(func, *args):
+    return func(*args)
+
+
+# In[25]:
+
+#Lambda
+def edit_story(words, func):
+    for word in words:
+        print(func(word))
+
+
+# In[26]:
+
+stairs = ['hello', 'hi', 'he']
+
+
+# In[27]:
+
+def cap(word):
+    return A.capitalize() + '!'
+
+
+# In[28]:
+
+edit_story(stairs, enliven)
+
+
+# In[29]:
+
+edit_story(stairs, lambda word: word.capitalize() + '!')
+
+
+# In[31]:
+
+def document_it(func):
+    def new_function(*args,**kwargs):
+        print('Running function:',fun._name_)
+        print('Positional arguments:',args)
+        print('Keyword arguments:',kwargs)
+        result=func(*args,**kwargs)
+        print('Result:',result)
+        return result
+    return new_function
+
+
+# In[32]:
+
+def add_ints(a,b):
+    return a+b
+
+
+# In[33]:
+
+add_ints(3,5)
+
+
+# In[34]:
+
+#@document_it
+def add_ints(a, b):
+    return a + b
+
+
+# In[35]:
+
+add_ints(3, 5)
+ 
+
+
+# In[39]:
+
+def square_it(func):
+    def new_function(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print('New結果:',result)
+        return result * result
+    return new_function
+ 
+
+
+# In[40]:
+
+@document_it
+@square_it
+def add_ints(a, b):
+    return a + b
+
+
+# In[42]:
+
+@square_it
+@document_it
+def add_ints(a, b):
+    return a+b
+
